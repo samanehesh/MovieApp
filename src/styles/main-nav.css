@@ -1,0 +1,37 @@
+.main-nav {
+  width: 100%;
+  /* border: 10px; */
+  /* background-color: #159e4e; */
+}
+
+.main-nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  line-height: 1;
+  display: flex;
+}
+
+.main-nav li {
+  flex: 1;
+}
+
+.main-nav a {
+  color: #fcfcfc;
+  text-decoration: none;
+  display: block;
+  line-height: 50px;
+  font-size: 1.3em;
+  font-weight: bold;
+  padding: 0;
+  text-align: center;
+}
+
+.main-nav li:not(:first-child) a {
+  border-left: 3px solid #e1e1e1;
+}
+.main-nav li a:hover,
+.main-nav li a:focus,
+.main-nav li a:active {
+  background-color: #555;
+}

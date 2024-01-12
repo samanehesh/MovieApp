@@ -1,0 +1,59 @@
+
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* general styles */
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  /* width: 100%; */
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+p {
+  line-height: 1.4;
+  padding: 1em 1em 0 1em;
+}
+
+/* end general styles */
+
+/* Wrapper Styles */
+
+.wrapper {
+  width:auto;
+  margin: 0 auto; /* 1 rem = top and bottom / auto = left and right */
+  background-color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+
+main {
+  display: block;
+  flex: 1;
+  background: #eee;
+}
+
+
+
+
