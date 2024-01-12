@@ -3,7 +3,7 @@
 import { useEffect,useState } from 'react';
 import { appTitle } from '../globals/globals';
 import axios from 'axios';
-import {StarRating} from '../components/StarRating'
+import {StarRating} from '../components/Stars'
 import "../styles/homePageStyle.css";
 
 const PageHome = () => {
@@ -18,6 +18,12 @@ const PageHome = () => {
     useEffect(() => {
 		document.title = `${appTitle} - Home`;
 	}, []);
+
+   useEffect(() => {
+    if (searchQuery) {
+      fetchMovies(searchQuery);
+    }
+  }, [searchQuery]);
 
     // function MovieSearch() {
     //     const [searchQuery, setSearchQuery] = useState('Popular');
@@ -99,13 +105,13 @@ const PageHome = () => {
                   </div>
 
                     <div>
-                      <h3>{movie.original_title ? movie.original_title : "No Movie title"}</h3>
-                      <h3>{movie.release_date ? movie.release_date : "No Release Date"}</h3>
+                      <div>{movie.original_title ? movie.original_title : "No Movie title"}</div>
+                      <div>{movie.release_date ? movie.release_date : "No Release Date"}</div>
                       <StarRating rating={movie.vote_average} />
                       
-                      <h3>{movie.overview && movie.overview.slice(0, 150) + "..."}
+                      <div>{movie.overview && movie.overview.slice(0, 150) + "..."}
                           {movie.overview.length ==0 && 'No Overview'}
-                      </h3>
+                      </div>
                     </div>
 
 

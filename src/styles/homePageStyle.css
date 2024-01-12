@@ -6,13 +6,15 @@ img{
 .all-movies{
     display: grid;
     grid-template-columns:repeat(2, 50%);
-    gap: 20px;
-    margin-top: 50px;
+    margin: 50px;
 
 }
 .movie-recommendation{
     border: 1px solid black;
-    margin:50px;
+
+    /* margin:50px; */
+    margin-bottom: 50px;
+    margin-right: 50px;
     display: grid;
     grid-template-rows: 1;
     grid-template-columns: 2;
@@ -21,13 +23,13 @@ img{
     grid-column-start: 1;
     grid-row-start: 1;
     margin-left: 20px;
+    margin-right: 20px;
 
     
 }
 .movie-recommendation :nth-of-type(2){
     grid-column-start: 2;
     grid-row-start: 1;
-    margin-left: 10px;
 }
 
 .star-rating {
