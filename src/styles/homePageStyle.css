@@ -19,7 +19,7 @@ img{
     grid-template-rows: 1;
     grid-template-columns: 2;
 }
-.movie-recommendation :nth-of-type(1){
+.movie-recommendation :nth-child(1){
     grid-column-start: 1;
     grid-row-start: 1;
     margin-left: 20px;
@@ -27,14 +27,19 @@ img{
 
     
 }
-.movie-recommendation :nth-of-type(2){
+.movie-recommendation :nth-child(2){
     grid-column-start: 2;
     grid-row-start: 1;
+}
+.movie-recommendation :nth-child(2) :nth-child(1){
+    margin: 0;
 }
 
 .star-rating {
     display: flex;
   }
+.star-rating :nth-child(1) {
+margin: 0;}
   
   .star {
     color: #ddd; /* Default color for unfilled stars */
