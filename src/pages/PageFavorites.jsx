@@ -1,20 +1,23 @@
-// Page - About
-
 import { useEffect } from 'react';
 import { appTitle } from '../globals/globals';
+import { useSelector } from 'react-redux';
+import MapMovies from "../components/MapMovies"
 
-const PageAbout = () => {
-
+const PageFavorites = () => {
 	useEffect(() => {
 		document.title = `${appTitle} - Favorites`;
 	}, []);
+	const movies = useSelector((state) => state.favorites.favorites);
+
+	if (movies.length == 0) {
+		return <div>No Favorite Movie to Display</div>;
+	  }
 
 	return (
-		<section>
-			<h2>Favorites Page</h2>
-		</section>
+		<>
+			<MapMovies movies = {movies}/>
+		</>
 	);
-	
 };
 
-export default PageAbout;
+export default PageFavorites;
