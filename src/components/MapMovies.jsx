@@ -23,7 +23,7 @@ const MapMovies = ({ movies}) => {
             <img
               src={movie.poster_path
                 ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
-                : '../assets/images/trooper.png' // Provide the path to your alternative image
+                : '../../public/assets/images/image-not-found.png' // Provide the path to your alternative image
             }
               alt={movie.original_title}
               />

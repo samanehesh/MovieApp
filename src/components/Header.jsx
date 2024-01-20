@@ -4,7 +4,7 @@ import Nav from "./Nav";
 import { Link } from "react-router-dom";
 import { appTitle } from "../globals/globals";
 
-import "../styles/header-style.css";
+import "../styles/Header.css";
 
 
 const Header = () => {
