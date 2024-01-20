@@ -4,7 +4,7 @@ import axios from 'axios';
 import {StarRating} from '../components/Stars'
 import { useSelector } from 'react-redux';
 import MapMovies from "../components/MapMovies"
-import "../styles/homePageStyle.css";
+import "../styles/PageHome.css";
 
 const AllMovies = () => {
     const apiKey = 'ea3a43981a82687d4ba7304f8d880abb';

@@ -2,8 +2,9 @@
 
 import { useEffect} from 'react';
 import { appTitle } from '../globals/globals';
-import "../styles/homePageStyle.css";
 import AllMovies from '../components/AllMovies';
+
+import "../styles/PageHome.css";
 
 const PageHome = () => {
 
