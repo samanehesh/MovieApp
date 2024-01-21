@@ -1,0 +1,56 @@
+img{
+    width: 200px;
+    height: auto;
+    transform: translateY(-20px);
+}
+
+.one-movie-detail{
+  display: flex;
+  justify-self: center;
+  align-self: center;
+}
+.one-movie{
+    display: grid;
+    grid-template-columns:2;
+    margin: 50px;
+    border: 1px solid black;
+    align-items: center;
+    justify-items: center;
+}
+
+.one-movie :nth-child(1){
+    grid-column-start: 1;
+    grid-row-start: 1;
+    margin-left: 20px;
+    margin-right: 20px;
+
+    
+}
+.one-movie :nth-child(2){
+    grid-column-start: 2;
+    grid-row-start: 1;
+}
+
+.star-rating {
+    display: flex;
+  }
+.star-rating :nth-child(1) {
+margin: 0;}
+  
+  .star {
+    color: #ddd; /* Default color for unfilled stars */
+  }
+  
+  .star.filled {
+    color: gold; /* Color for filled stars */
+  }
+
+  .heart-button {
+    background-color: transparent;
+    border: none;
+    color: red;
+    font-size: 24px;
+    cursor: pointer;
+    outline: none;
+    /* transform: translateY(-20px); */
+  }

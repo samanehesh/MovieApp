@@ -1,26 +1,41 @@
-import {StarRating} from '../components/Stars'
-import { Link } from "react-router-dom";
-
+import { useEffect } from "react";
+import { appTitle } from "../globals/globals";
+import { Link, Navigate, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import {StarRating} from '../components/Stars'
 import { addFavorite, deleteFavorite } from "../features/favorites/favoritesSlice";
-// import { addItem, deleteItem } from "../features/movies/moviesSlice";
+import "../styles/detailPageStyle.css";
 
 
-const MapMovies = ({ movies}) => {
-  if (!movies) {
-    return <h1>No Movie to Display</h1>;
-  }
-  const favoriteMovies = useSelector((state) => state.favorites.favorites);
-  const dispatch = useDispatch();
+const PageMovieDetails = () => {
+    let { id } = useParams();
+
+    const movies = useSelector((state) => state.favorites.favorites);
+    const favoriteMovies = useSelector((state) => state.favorites.favorites);
+
+    const dispatch = useDispatch();
+
+
+    useEffect(() => {
+      document.title = `${appTitle} - Character ${id}`;
+    }, [id]);
+  
+    id = id * 1;
+
+
+    // if (isNaN(id) || id % 1 !== 0 || id < 0 || id > 12) {
+    //   return <Navigate to="/" replace={true} />;
+    // }
+
+    const movie = movies.filter((movie) => movie.id === id)[0];
 
   function inFavorites(id, arr) {
     return arr.some((item) => item.id === id);
   }
 
-  return (
-    <div className = "all-movies">
-    {(movies.slice(0, 12).map((movie) => (
-        <div key={movie.id} className="movie-recommendation">
+    return(
+        <div className = "one-movie-detail">
+             <div className = "one-movie">
           <div>
             <img
               src={movie.poster_path
@@ -45,23 +60,23 @@ const MapMovies = ({ movies}) => {
               <div>{movie.release_date ? movie.release_date : "No Release Date"}</div>
               <StarRating rating={movie.vote_average} />
               
-              <div>{movie.overview && movie.overview.slice(0, 150) + "..."}
+              <div>{movie.overview }
                   {movie.overview.length ==0 && 'No Overview'}
               </div>
-              <Link key={movie.id} to={`/${movie.id}`}>
-              <button>More Info</button>
+              <Link  to={`/`}>
+              <button>Back to Home</button>
               </Link>
             </div>
 
-
+            </div>
 
 
         </div>
-        ))) }
         
-    </div>
+        
+    
 
-  );
-};
+    )
+}
 
-export default MapMovies;
+export default PageMovieDetails;

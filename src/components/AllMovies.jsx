@@ -43,7 +43,7 @@ const AllMovies = () => {
           const response = await axios.get(
             `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${selectedCategory}`
             );
-          console.log("response.data",response.data)
+          // console.log("response.data",response.data)
           setMovies(response.data.results);
           return response.data.results;
         } catch (error) {

@@ -11,10 +11,11 @@ import Header from "../components/Header";
 // import Footer from "../components/Footer";
 // Pages
 import PageHome from "../pages/PageHome";
-
 import PageNotFound from "../pages/PageNotFound";
 import PageAbout from "../pages/PageAbout";
 import PageFavorites from "../pages/PageFavorites";
+import PageMovieDetails from "../pages/PageMovieDetails";
+
 function AppRouter() {
   return (
     <BrowserRouter>
@@ -25,7 +26,7 @@ function AppRouter() {
             <Route path="/" exact element={<PageHome />} />
             <Route path="/about" element={<PageAbout />} />
             <Route path="/favorites" element={<PageFavorites />} />
-            {/* <Route path="/:id" exact element={<PageMovieDetails />} /> */}
+            <Route path="/:id" exact element={<PageMovieDetails />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </main>
