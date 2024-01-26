@@ -21,9 +21,7 @@ const Nav = () => {
         <li>
           <NavLink to="/favorites">Favorites</NavLink>
         </li>
-        {/* <li>
-          <NavLink to="/contact">Contact</NavLink>
-        </li> */}
+
       </ul>
     </nav>
   );
