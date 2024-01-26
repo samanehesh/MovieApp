@@ -1,7 +1,9 @@
 import  OneMovie  from '../components/OneMovie'
 import { Link } from "react-router-dom";
+import "../styles/PageHome.css";
 
-import "../styles/homePageStyle.css";
+
+// import "../styles/homePageStyle.css";
 
 
 const MapMovies = ({ movies}) => {

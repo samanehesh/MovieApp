@@ -2,7 +2,9 @@
 
 import { useEffect, useState} from 'react';
 import { appTitle } from '../globals/globals';
-import "../styles/homePageStyle.css";
+import MapMovies from '../components/MapMovies';
+import "../styles/PageHome.css";
+import { fetchMovies } from '../api/fetchMovies';
 import AllMovies from '../components/AllMovies';
 
 const PageHome = () => {

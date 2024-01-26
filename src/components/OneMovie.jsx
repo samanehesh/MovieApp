@@ -1,7 +1,7 @@
 import {StarRating} from '../components/Stars'
 import { Link } from "react-router-dom";
 
-import "../styles/homePageStyle.css";
+import "../styles/PageHome.css";
 
 
 import { useSelector, useDispatch } from "react-redux";
