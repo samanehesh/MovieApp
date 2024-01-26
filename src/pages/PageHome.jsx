@@ -5,7 +5,6 @@ import { appTitle } from '../globals/globals';
 import MapMovies from '../components/MapMovies';
 import "../styles/PageHome.css";
 import { fetchMovies } from '../api/fetchMovies';
-import AllMovies from '../components/AllMovies';
 
 const PageHome = () => {
   // const movies = useSelector((state) => state.movies.movies);
