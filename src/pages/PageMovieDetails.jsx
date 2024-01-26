@@ -13,7 +13,7 @@ const PageMovieDetails = () => {
   // const [movie, setMovie] = useState(null);
   const { id } = useParams();
 
-  const movies = useSelector((state) => state.favorites.favorites);
+  // const movies = useSelector((state) => state.favorites.favorites);
   const favoriteMovies = useSelector((state) => state.favorites.favorites);
 
   const dispatch = useDispatch();
