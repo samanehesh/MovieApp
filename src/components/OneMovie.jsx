@@ -1,4 +1,6 @@
 import {StarRating} from '../components/Stars'
+import { Link } from "react-router-dom";
+
 import "../styles/homePageStyle.css";
 
 
@@ -23,7 +25,8 @@ const OneMovie = ({ movie}) => {
 
 
   return (
-    <div className= "all-movies">
+    <div className= "movie-recommendation">
+        <div>
         <img
             src={movie.poster_path
             ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
@@ -42,12 +45,17 @@ const OneMovie = ({ movie}) => {
                 </button>
               )}
         </div>
+
+        </div>
+
         <div>
               <div>{movie.original_title ? movie.original_title : "No Movie title"}</div>
               <div>{movie.release_date ? movie.release_date : "No Release Date"}</div>
               <StarRating rating={movie.vote_average} />
               
-              <div>{movie.overview && movie.overview.slice(0, 150) + "..."}
+              <div>{movie.overview && movie.overview.slice(0, 150) + "..."} <Link to={`/${movie.id}`}>
+                      <button>More Info</button>
+                  </Link>
                   {movie.overview.length ==0 && 'No Overview'}
               </div>
 
