@@ -3,9 +3,7 @@
 import { useEffect, useState} from 'react';
 import { appTitle } from '../globals/globals';
 import "../styles/homePageStyle.css";
-import {fetchMovies} from '../api/fetchMovies'
-import MapMovies from "../components/MapMovies"
-
+import AllMovies from '../components/AllMovies';
 
 const PageHome = () => {
   // const movies = useSelector((state) => state.movies.movies);
