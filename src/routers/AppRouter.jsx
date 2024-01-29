@@ -15,6 +15,8 @@ import PageNotFound from "../pages/PageNotFound";
 import PageAbout from "../pages/PageAbout";
 import PageFavorites from "../pages/PageFavorites";
 import PageMovieDetails from "../pages/PageMovieDetails";
+import PageWatchLater from "../pages/PageWatchLater";
+
 
 function AppRouter() {
   return (
@@ -28,6 +30,7 @@ function AppRouter() {
             <Route path="/favorites" element={<PageFavorites />} />
             <Route path="/:id" exact element={<PageMovieDetails />} />
             <Route path="*" element={<PageNotFound />} />
+            <Route path="/watchlater" element={<PageWatchLater />} />
           </Routes>
         </main>
         {/* <Footer /> */}

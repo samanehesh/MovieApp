@@ -1,41 +1,61 @@
 import { useEffect, useState } from "react";
 import { appTitle } from "../globals/globals";
-import { Link, Navigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {StarRating} from '../components/Stars'
 import { addFavorite, deleteFavorite } from "../features/favorites/favoritesSlice";
+import { deleteToWatch, addToWatch } from "../features/watchlater/watchlaterSlice";
 import "../styles/detailPageStyle.css";
-import  OneMovie  from '../components/OneMovie'
+import { fetchMovieDetails } from '../api/fetchMovies';
+
 
 
 
 const PageMovieDetails = () => {
   // const [movie, setMovie] = useState(null);
   const { id } = useParams();
+  const [movie, setMovie] = useState(null);
+
 
   // const movies = useSelector((state) => state.favorites.favorites);
   const favoriteMovies = useSelector((state) => state.favorites.favorites);
+  const watchLaterMovies = useSelector((state) => state.watchlater.watchlater);
+
 
   const dispatch = useDispatch();
+  // useEffect(() => {
+  //   document.title = `${appTitle} - Movie ${id}`;
+  // }, [id]);
+
   useEffect(() => {
+    const fetchDetails = async () => {
+        const details = await fetchMovieDetails(id);
+        setMovie(details);
+    };
+
+    fetchDetails();
     document.title = `${appTitle} - Movie ${id}`;
+
   }, [id]);
 
   // useEffect(() => {
       // Use the filter to find the movie with the matching id
-      const movie = movies.find((m) => m.id == id);
+      // const movie = movies.find((m) => m.id == id);
       
       // Set the movie state with the selected movie
       // setMovie(selectedMovie);
   // }, [id, movies]);
 
     if (!movie) {
-      return <h1>No Movieeee to Display</h1>;
+      return <h1>No Movie to Display</h1>;
     }
       // const movies = useSelector((state) => state.movies.movies);
   
   
     function inFavorites(id, arr) {
+      return arr.some((item) => item.id === id);
+    }
+    function inWatchLater(id, arr) {
       return arr.some((item) => item.id === id);
     }
   
@@ -52,7 +72,10 @@ const PageMovieDetails = () => {
 
     return (
       <div className= "movie-recommendation">
+        
           <div>
+          {/* <h1>{movie.original_title ? movie.original_title : "No Movie title"}</h1> */}
+
           <img
               src={movie.poster_path
               ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
@@ -71,6 +94,18 @@ const PageMovieDetails = () => {
                   </button>
                 )}
           </div>
+
+          <div>
+            {inWatchLater(movie.id, watchLaterMovies) === true ? (
+                <button className="plus-button" onClick={() => dispatch(deleteToWatch(movie))}>
+                  delete
+                </button>
+              ) : (
+                <button className="plus-button" onClick={() => dispatch(addToWatch(movie))}>
+                  Add
+                </button>
+              )}
+        </div>
   
           </div>
   

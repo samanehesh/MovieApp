@@ -6,6 +6,8 @@ import "../styles/PageHome.css";
 
 import { useSelector, useDispatch } from "react-redux";
 import { addFavorite, deleteFavorite } from "../features/favorites/favoritesSlice";
+import { deleteToWatch, addToWatch } from "../features/watchlater/watchlaterSlice";
+
 // import { addItem, deleteItem } from "../features/movies/moviesSlice";
 
 
@@ -16,9 +18,15 @@ const OneMovie = ({ movie}) => {
     // const movies = useSelector((state) => state.movies.movies);
 
   const favoriteMovies = useSelector((state) => state.favorites.favorites);
+  const watchLaterMovies = useSelector((state) => state.watchlater.watchlater);
+
   const dispatch = useDispatch();
 
   function inFavorites(id, arr) {
+    return arr.some((item) => item.id === id);
+  }
+
+  function inWatchLater(id, arr) {
     return arr.some((item) => item.id === id);
   }
 
@@ -42,6 +50,18 @@ const OneMovie = ({ movie}) => {
               ) : (
                 <button className="heart-button" onClick={() => dispatch(addFavorite(movie))}>
                   🤍
+                </button>
+              )}
+        </div>
+
+        <div>
+            {inWatchLater(movie.id, watchLaterMovies) === true ? (
+                <button className="plus-button" onClick={() => dispatch(deleteToWatch(movie))}>
+                  delete
+                </button>
+              ) : (
+                <button className="plus-button" onClick={() => dispatch(addToWatch(movie))}>
+                  Add
                 </button>
               )}
         </div>

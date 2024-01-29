@@ -18,7 +18,6 @@ const MapMovies = ({ movies}) => {
           {movies.map(movie => (
               <div key={movie.id}>
                   <OneMovie movie={movie} />
-
               </div>
           ))}
       </div>
