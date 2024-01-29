@@ -15,6 +15,8 @@ const MapMovies = ({ movies}) => {
 
     return (
       <div className="all-movies">
+                  {/* {movies.slice(0, 12).map(movie => ( */}
+
           {movies.map(movie => (
               <div key={movie.id}>
                   <OneMovie movie={movie} />
